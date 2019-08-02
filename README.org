@@ -1,0 +1,27 @@
+
+* Config File
+
+** Path:
+
+   =~/.ssh/tunnels.yml=
+
+** Format example:
+
+   #+BEGIN_SRC yaml
+     - name: remote-mysql
+       remote_ssh_host: my_host
+       tunnel_options: "-L 3307:db.my-domain.com:3306"
+     - name: remote-redis
+       remote_ssh_host: my_host
+       tunnel_options: "-L 6380:localhost:6379"
+     - name: worm-hole
+       remote_ssh_host: my_secret_host
+       tunnel_options: "-D 8070"
+     - name: welcome-to-my-computer
+       remote_ssh_host: my_friends_host
+       tunnel_options: "-R 2022:localhost:22"
+   #+END_SRC
+
+* Screenshot   
+
+[[file:./README/media/image1.png]]
