@@ -1,3 +1,8 @@
+* Prerequisites
+  
+  #+BEGIN_SRC sh
+    brew install autossh
+  #+END_SRC
 
 * Config File
 
