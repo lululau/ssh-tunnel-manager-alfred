@@ -5,7 +5,7 @@ require 'tunnel'
 
 class App
   def list(args)
-    print Tunnel.select_by_name(args[0]).each_with_object(Alfred::Workflow.new) { |tunnel, workflow|
+    print Tunnel.select_by_name(args[0].strip).each_with_object(Alfred::Workflow.new) { |tunnel, workflow|
       workflow.result
         .uid(tunnel.name)
         .title(tunnel.name)
