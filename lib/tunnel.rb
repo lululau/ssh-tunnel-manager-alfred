@@ -63,8 +63,8 @@ class Tunnel
   end
 
   def start!
-    system({'AUTOSSH_PIDFILE' => pidfile}, <<-EOF)
-    /usr/local/bin/autossh -M 0 -f -q -N -o ServerAliveInterval=10 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=yes #{@options} #{remote_ssh_host}
+    system({'AUTOSSH_PIDFILE' => pidfile, 'PATH' => "/usr/local/bin:/opt/homebrew/bin:#{ENV['PATH']}"}, <<-EOF)
+    autossh -M 0 -f -q -N -o ServerAliveInterval=10 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=yes #{@options} #{remote_ssh_host}
     EOF
 
     sleep 0.1
